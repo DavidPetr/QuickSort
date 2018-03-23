@@ -16,14 +16,11 @@ void quick(int a[], int low, int high) {
 	int max = a[high - 1],i = low;
 	for (int j = low; j < high; j++)
 		if (a[j] <= max) {
-			int t = a[i];
-			a[i] = a[j];
-			a[j] = t;
-			/*
-			a[i] ^= a[j];
-			a[j] ^= a[i];
-			a[i] ^= a[j];
-			*/
+			if(a[j] != a[i]){					
+				a[i] ^= a[j];
+				a[j] ^= a[i];
+				a[i] ^= a[j];		
+			}
 			i++;
 		}
 	if (i == high)return;
